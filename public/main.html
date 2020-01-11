@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Main</title>
+
+		<!-- import the webpage's stylesheet -->
+		<link rel="stylesheet" href="style.css">
+		<!-- import the webpage's javascript file -->
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+        <div class="about-game">
+            <header class="game-name">
+                <h1>Мельница <span>Nine Men’s Morris</span></h1>
+            </header>
+            <section class="game-description">
+                <h2 hidden>Об игре</h2>
+                <p>«Мельница» – древняя настольная логическая игра для тренировки стратегического мышления, дальняя родственница крестиков-ноликов. 
+                    Развлечение имеет нестандартную механику, которая может с непривычки показаться гораздо сложнее, 
+                    чем есть на самом деле. Мы предлагаем сыграть Вам в одну из её версий, известную как 
+                    «Nine Men’s Morris» («Танец девяти мужчин») аналогично названию типа доски, используемой для неё. </p>
+            </section>
+        </div>
+
+        <section class="authorization">
+            <input id="tab-1" type="radio" name="tab" class="log-in" checked>
+            <label for="tab-1" class="tab">Вход</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up">
+            <label for="tab-2" class="tab">Регистрация</label>
+            
+            <div class="authorization-form">
+                <form method="post" name="login-form-name" action="/login" class="login-form">
+                    <label for="login">Логин </label>
+                    <input type="text" name="login" class="data" required />
+                    <label for="pw">Пароль </label>
+                    <input type="password" name="pw" class="data" required />
+                    <button type="submit" value="Отправить">Войти</button>
+                    <output class="login-error-message"></output>
+                </form>
+
+                <form method="post" name="signup-form-name" action="/signup" class="signup-form">
+                    <label for="login">Логин </label>
+                    <input type="text" name="login" class="data" required />
+                    <label for="name">Имя </label>
+                    <input type="text" name="name" class="data" required />
+                    <label for="pw">Пароль </label>
+                    <input type="password" name="pw" class="data" required />
+                    <button type="submit" value="Отправить">Зарегистрироваться</button>
+                    <output class="signup-error-message"></output>
+                </form>
+            </div>
+        </section>
+	</body>
+</html>

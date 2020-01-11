@@ -1,0 +1,28 @@
+{
+  "name": "httpserver",
+  "version": "1.0.0",
+  "description": "Simple web-server for the game Nine Men's Morris",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "simple",
+    "web",
+    "server",
+    "websocket"
+  ],
+  "author": "Angelika Ermolinskaya",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "lowdb": "^1.0.0",
+    "mysql": "^2.17.1",
+    "node-static": "^0.7.11",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "ws": "^7.2.0",
+    "xmlhttprequest": "^1.8.0"
+  }
+}

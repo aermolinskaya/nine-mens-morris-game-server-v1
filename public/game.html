@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Game</title>
+
+		<!-- import the webpage's stylesheet -->
+		<link rel="stylesheet" href="style.css">
+		<!-- import the webpage's javascript file -->
+		<script src="gamescript.js" defer></script>
+	</head>
+	<body>
+		<h1 hidden>Игры</h1>
+
+		<section class="user-profile">
+			<p>Вы зашли как <span>Имя (Логин)</span></p>
+			<button type="submit" class="button-logout" formaction="/logout">Выход</button>
+		</section>
+
+        <section class="user-info player-1">
+            <h2>Первый игрок</h2>
+            <div class="player-name">Имя</div>
+            <div class="player-login">Логин</div>
+			<div class="player-free-checkers">
+				<div class="cell cell-player-1"></div>
+				<div class="cell cell-player-1"></div>
+				<div class="cell cell-player-1"></div>
+				<div class="cell cell-player-1"></div>
+				<div class="cell cell-player-1"></div>
+			</div>
+        </section>
+
+        <section>
+            <h2 hidden>Поле открытой игры</h2>
+            <div class="field">
+                <div class="field-vertical-merellus">
+                    <div class="merellus line-4"></div>
+                    <div class="merellus line-8"></div>
+                    <div class="merellus line-12"></div>
+                    <div class="merellus line-13"></div>
+                    <div class="merellus line-15"></div>
+                    <div class="merellus line-10"></div>
+                    <div class="merellus line-6"></div>
+                    <div class="merellus line-2"></div>
+                </div>
+                <div class="field-horizontal-merellus">
+                    <div class="merellus line-1"></div>
+                    <div class="merellus line-5"></div>
+                    <div class="merellus line-9"></div>
+                    <div class="merellus line-16"></div>
+                    <div class="merellus line-14"></div>
+                    <div class="merellus line-11"></div>
+                    <div class="merellus line-7"></div>
+                    <div class="merellus line-3"></div>
+                </div>
+                
+                <div class="field-cells">
+                    <button class="cell cell-player-1" data-cell-id="1"></button>
+                    <div class="not-cell"></div>
+                    <div class="not-cell"></div>
+                    <button class="cell cell-player-2" data-cell-id="2"></button>
+                    <div class="not-cell"></div>
+                    <div class="not-cell"></div>
+                    <button class="cell" data-cell-id="3" disabled></button>
+
+                    <div class="not-cell"></div>
+                    <button class="cell" data-cell-id="4"></button>
+                    <div class="not-cell"></div>
+                    <button class="cell" data-cell-id="5"></button>
+                    <div class="not-cell"></div>
+                    <button class="cell" data-cell-id="6"></button>
+                    <div class="not-cell"></div>
+
+                    <div class="not-cell"></div>
+                    <div class="not-cell"></div>
+                    <button class="cell" data-cell-id="7"></button>
+                    <button class="cell" data-cell-id="8"></button>
+                    <button class="cell" data-cell-id="9"></button>
+                    <div class="not-cell"></div>
+                    <div class="not-cell"></div>
+
+                    <button class="cell" data-cell-id="10"></button>
+                    <button class="cell" data-cell-id="11"></button>
+                    <button class="cell" data-cell-id="12"></button>
+                    <div class="not-cell"></div>
+                    <button class="cell" data-cell-id="13"></button>
+                    <button class="cell" data-cell-id="14"></button>
+                    <button class="cell" data-cell-id="15"></button>
+
+                    <div class="not-cell"></div>
+                    <div class="not-cell"></div>
+                    <button class="cell" data-cell-id="16"></button>
+                    <button class="cell" data-cell-id="17"></button>
+                    <button class="cell" data-cell-id="18"></button>
+                    <div class="not-cell"></div>
+                    <div class="not-cell"></div>
+
+                    <div class="not-cell"></div>
+                    <button class="cell" data-cell-id="19"></button>
+                    <div class="not-cell"></div>
+                    <button class="cell" data-cell-id="20"></button>
+                    <div class="not-cell"></div>
+                    <button class="cell" data-cell-id="21"></button>
+                    <div class="not-cell"></div>
+
+                    <button class="cell" data-cell-id="22"></button>
+                    <div class="not-cell"></div>
+                    <div class="not-cell"></div>
+                    <button class="cell" data-cell-id="23"></button>
+                    <div class="not-cell"></div>
+                    <div class="not-cell"></div>
+                    <button class="cell" data-cell-id="24"></button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="user-info player-2">
+            <h2>Второй игрок</h2>
+            <div class="player-name">Имя</div>
+            <div class="player-login">Логин</div>
+            <div class="player-free-checkers"></div>
+        </section>
+
+        <section class="hint output-info"><h2>Подсказка</h2><p>Выберите игру</p></section>
+        <section class="error-message output-info message-empty"><h2>Ошибка</h2><p>Не существующий ход</p></section>
+
+		<input type="checkbox" id="hmt" class="hidden-menu-ticker" />
+		<label for="hmt" class="button-games-invites-menu">
+			<p>Игры, приглашения и другие игроки</p>
+		</label>
+		<div class="hidden-games-invites-menu">
+			<label for="hmt" class="hidden-menu-overlay"></label>
+
+			<section class="hidden-menu">
+				<h2>Незавершённые игры</h2>
+				<div id="games-list">
+                    <input type="radio" name="game-elems-list" value="21" id="game-elem-21" data-start="2019-12-27 17:52:57" data-login="Ivan" data-name="Иван" data-actual-round="1" data-rounds="7" class="game-elem selected-game">
+                    <label for="game-elem-21" class="game-elem-info"><p><span>27 декабря 2019 г., 17:52:57. </span>Иван (Ivan), раунд 1 из 7</p></label>
+                    
+                    <input type="radio" name="game-elems-list" value="20" id="game-elem-20" data-start="2019-12-24 10:46:15" data-login="Ivan" data-name="Иван" data-actual-round="3" data-rounds="7" class="game-elem">
+                    <label for="game-elem-20" class="game-elem-info"><p><span>24 декабря 2019 г., 10:46:15. </span>Иван (Ivan), раунд 3 из 7</p></label>
+
+					<div data-start="2019-12-21 16:48:23" data-login="Ivan" data-name="Иван" data-actual-round="1" data-id-round="14" data-rounds="3" class="game-elem"><span>21 декабря 2019 г., 16:48:23.</span> Иван (Ivan), раунд 1 из 3</div>
+					<div data-start="2019-12-21 16:47:23" data-login="Ivan" data-name="Иван" data-actual-round="1" data-id-round="13" data-rounds="3" class="game-elem"><span>21 декабря 2019 г., 16:47:23.</span> Иван (Ivan), раунд 1 из 3</div>
+					<div data-start="2019-12-21 16:46:23" data-login="Ivan" data-name="Иван" data-actual-round="1" data-id-round="12" data-rounds="3" class="game-elem"><span>21 декабря 2019 г., 16:46:23.</span> Иван (Ivan), раунд 1 из 3</div>
+					<div data-start="2019-12-21 16:44:23" data-login="Ivan" data-name="Иван" data-actual-round="1" data-id-round="10" data-rounds="1" class="game-elem"><span>21 декабря 2019 г., 16:44:23.</span> Иван (Ivan), раунд 1 из 1</div>
+					<div data-start="2019-12-21 16:43:23" data-login="Ivan" data-name="Иван" data-actual-round="1" data-id-round="9" data-rounds="1" class="game-elem"><span>21 декабря 2019 г., 16:43:23.</span> Иван (Ivan), раунд 1 из 1</div>
+					<div data-start="2019-12-21 16:42:23" data-login="Ivan" data-name="Иван" data-actual-round="1" data-id-round="8" data-rounds="1" class="game-elem"><span>21 декабря 2019 г., 16:42:23.</span> Иван (Ivan), раунд 1 из 1</div>
+					<div data-start="2019-12-21 16:41:23" data-login="Ivan" data-name="Иван" data-actual-round="1" data-id-round="7" data-rounds="1" class="game-elem"><span>21 декабря 2019 г., 16:41:23.</span> Иван (Ivan), раунд 1 из 1</div>
+					<div data-start="2019-12-21 16:40:23" data-login="Ivan" data-name="Иван" data-actual-round="1" data-id-round="6" data-rounds="1" class="game-elem"><span>21 декабря 2019 г., 16:40:23.</span> Иван (Ivan), раунд 1 из 1</div>
+					<div data-start="2019-12-21 16:39:23" data-login="Ivan" data-name="Иван" data-actual-round="1" data-id-round="5" data-rounds="1" class="game-elem"><span>21 декабря 2019 г., 16:39:23.</span> Иван (Ivan), раунд 1 из 1</div>
+					<div data-start="2019-12-21 16:38:23" data-login="Ivan" data-name="Иван" data-actual-round="1" data-id-round="4" data-rounds="1" class="game-elem"><span>21 декабря 2019 г., 16:38:23.</span> Иван (Ivan), раунд 1 из 1</div>
+					<div data-start="2019-12-21 16:37:23" data-login="Ivan" data-name="Иван" data-actual-round="1" data-id-round="1" data-rounds="1" class="game-elem"><span>21 декабря 2019 г., 16:37:23.</span> Иван (Ivan), раунд 1 из 1</div>
+				</div>
+			</section>
+			<section class="hidden-menu">
+				<h2>Пользователи онлайн</h2>
+				<div id="users-online-list">
+					<div class="users-elem">Vasya</div>
+				</div>
+			</section>
+			<section class="hidden-menu">
+				<h2>Пригласить в игру</h2>
+				<form id="invite-form" name="invite-form">
+					<input type="text" name="log-invited" placeholder="Логин приглашаемого" />
+					<select name="rounds">
+						<option value="1">на 1 раунд</option>
+						<option value="3">на 3 раунда</option>
+						<option value="5">на 5 раундов</option>
+						<option value="7">на 7 раундов</option>
+						<option value="9">на 9 раундов</option>
+					</select>
+					<button type="submit" name="button-invite" value="Пригласить">Пригласить</button>
+				</form>
+			</section>
+			<section class="hidden-menu">
+				<h2>Приглашения</h2>
+				<div id="invites-list">
+					<div data-login="Vasya" data-name="Вася" data-rounds="1" class="invite-elem">
+						<button type="submit" class="button-assign">Принять</button>
+                        <button type="submit" class="button-reject">Отклонить</button>
+                        <span>1 декабря 2019 г., 21:22:55.</span> Вася (Vasya) приглашает на 1 раунд
+					</div>
+					<div data-login="Vasya" data-name="Вася" data-rounds="1" class="invite-elem">
+						<button type="submit" class="button-assign">Принять</button>
+                        <button type="submit" class="button-reject">Отклонить</button>
+                        <span>1 декабря 2019 г., 21:22:55.</span> Вася (Vasya) приглашает на 1 раунд
+					</div>
+				</div>
+			</section>
+        </div>
+	</body>
+</html>
